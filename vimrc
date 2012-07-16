@@ -97,7 +97,7 @@ colorscheme twilight_bryan
 " Backups
 " ---------------
 set backup
-set backupdir=~/.vim/backup
+set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 
 " ---------------
