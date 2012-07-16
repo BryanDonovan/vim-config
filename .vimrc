@@ -1,10 +1,3 @@
-" =======================================
-" Who: Jeremy Mack (@mutewinter)
-" What: .vimrc of champions
-" Version: 1.0 (this may never change because who versions dot files,
-" honestly)
-" =======================================
-
 " ----------------------------------------
 " Vundle
 " ----------------------------------------
@@ -23,37 +16,19 @@ Bundle 'gmarik/vundle'
 " ---------------
 
 " Navigation
-Bundle 'ZoomWin'
-Bundle 'wincent/Command-T'
-" This fork is required due to remapping ; to :
 Bundle 'christoomey/vim-space'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mutewinter/LustyJuggler'
-Bundle 'kien/ctrlp.vim'
-" UI Additions
-Bundle 'mutewinter/vim-indent-guides'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Rykka/colorv.vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'tomtom/quickfixsigns_vim'
 " Commands
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-fugitive'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
-Bundle 'milkypostman/vim-togglelist'
-Bundle 'mutewinter/swap-parameters'
 Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
-Bundle 'mattn/zencoding-vim'
 " Automatic Helpers
 Bundle 'IndexedSearch'
 Bundle 'xolox/vim-session'
-Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
@@ -74,28 +49,19 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
-"   TomDoc
-Bundle 'mutewinter/tomdoc.vim'
-Bundle 'jc00ke/vim-tomdoc'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
-Bundle 'mutewinter/taskpaper.vim'
 Bundle 'mutewinter/nginx.vim'
 Bundle 'timcharper/textile.vim'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
-Bundle 'xhtml.vim--Grny'
 Bundle 'groenewege/vim-less'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
-Bundle 'L9'
 Bundle 'tpope/vim-repeat'
-Bundle 'tomtom/tlib_vim'
-Bundle 'mathml.vim'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
 
@@ -107,34 +73,19 @@ let mapleader=","
 " Platform Specific Configuration
 " ----------------------------------------
 
-if has('win32') || has('win64')
-  " Windows
-  source $VIMRUNTIME/mswin.vim
-  set guifont=Consolas:h10
-  set guioptions-=T " Toolbar
-  set guioptions-=m " Menubar
+" MacVim
 
-  " Set height and width on Windows
-  set lines=60
-  set columns=120
+" Custom Menlo font for Powerline
+" From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
+set guifont=Menlo\ for\ Powerline:h12
 
-  " Windows has a nasty habit of launching gVim in the wrong working directory
-  cd ~
-elseif has('gui_macvim')
-  " MacVim
-
-  " Custom Menlo font for Powerline
-  " From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
-  set guifont=Menlo\ for\ Powerline:h12
-
-  " Hide Toolbar in MacVim
-  if has("gui_running")
-    set guioptions=egmrt
-  endif
-
-  " Use option (alt) as meta key.
-  set macmeta
+" Hide Toolbar in MacVim
+if has("gui_running")
+  set guioptions=egmrt
 endif
+
+" Use option (alt) as meta key.
+set macmeta
 
 " ----------------------------------------
 " Regular Vim Configuration (No Plugins Needed)
@@ -144,7 +95,7 @@ endif
 " Color
 " ---------------
 set background=dark
-colorscheme jellybeans
+"colorscheme 
 
 " ---------------
 " Backups
@@ -157,13 +108,13 @@ set directory=~/.vim/tmp
 " UI
 " ---------------
 set ruler          " Ruler on
-set nu             " Line numbers on
+set nonumber       " Line numbers off 
 set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
 if exists('+colorcolumn')
-  set colorcolumn=80 " Color the 80th column differently
+  set colorcolumn=120 " Color the 80th column differently
 endif
 " Disable tooltips for hovering keywords in Vim
 if exists('+ballooneval')
@@ -289,53 +240,6 @@ nmap <silent> <leader>s :set spell!<CR>
 " Edit vimrc with ,v
 nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
 
-" Window Movement
-" Here's a visual guide for moving between window splits.
-"   4 Window Splits
-"   --------
-"   g1 | g2
-"   ---|----
-"   g3 | g4
-"   -------
-"
-"   6 Window Splits
-"   -------------
-"   g1 | gt | g2
-"   ---|----|----
-"   g3 | gb | g4
-"   -------------
-nmap <silent> gh :wincmd h<CR>
-nmap <silent> gj :wincmd j<CR>
-nmap <silent> gk :wincmd k<CR>
-nmap <silent> gl :wincmd l<CR>
-" Upper left window
-nmap <silent> g1 :wincmd t<CR>
-" Upper right window
-nmap <silent> g2 :wincmd b<Bar>:wincmd k<CR>
-" Lower left window
-nmap <silent> g3 :wincmd t<Bar>:wincmd j<CR>
-" Lower right window
-nmap <silent> g4 :wincmd b<CR>
-
-" Top Middle
-nmap <silent> gt g2<Bar>:wincmd h<CR>
-" Bottom Middle
-nmap <silent> gb g3<Bar>:wincmd l<CR>
-
-" Previous Window
-nmap <silent> gp :wincmd p<CR>
-" Equal Size Windows
-nmap <silent> g= :wincmd =<CR>
-" Swap Windows
-nmap <silent> gx :wincmd x<CR>
-
-" Window Splitting
-nmap <silent> <leader>sh :split<CR>
-nmap <silent> <leader>sv :vsplit<CR>
-" Because I'm dyslexic
-nmap <silent> <leader>hs :split<CR>
-nmap <silent> <leader>vs :vsplit<CR>
-nmap <silent> <leader>sc :close<CR>
 " ----------------------------------------
 " Plugin Configuration
 " ----------------------------------------
@@ -408,45 +312,6 @@ function! s:on_insert_leave()
 endfunction
 
 " ---------------
-" Lusty Juggler
-" ---------------
-if has('unix')
-  " Allows for previous buffer on unix systems without most recent patch level
-  " that enable LustyJuggler to work
-  nnoremap <leader>, :e#<CR>
-else
-  nnoremap <leader>, :LustyJugglePrevious<CR>
-end
-let g:LustyJugglerShowKeys=1 " Show numbers for Lusty Buffers
-let g:LustyJugglerSuppressRubyWarning=1
-
-" ---------------
-" Syntastic
-" ---------------
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-
-" Platform-specific config files
-if has('win32') || has('win64')
-  let g:syntastic_jsl_conf=$HOME.'/.vim/config/windows/syntastic/jsl.conf'
-  let g:syntastic_disabled_filetypes=['sh'] " Disable .sh on Windows
-endif
-
-" ---------------
-" NERDTree
-" ---------------
-nnoremap <leader>nn :NERDTreeToggle<CR>
-nnoremap <leader>nf :NERDTreeFind<CR>
-let NERDTreeShowBookmarks=1
-let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" ---------------
-" Indent Guides
-" ---------------
-let g:indent_guides_enable_on_vim_startup=1
-
-" ---------------
 " Session
 " ---------------
 let g:session_autosave=0
@@ -491,87 +356,6 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gx :wincmd h<CR>:q<CR>
 
 " ---------------
-" Zoomwin
-" ---------------
-" Zoom Window to Full Size
-nmap <silent> <leader>wo :ZoomWin<CR>
-
-" ---------------
-" Command T and ctrlp.vim
-" ---------------
-" Ensure Ctrl-P isn't bound by default
-let g:ctrlp_map = ''
-
-" Ensure max height isn't too large. (for performance)
-let g:ctrlp_max_height = 10
-let g:CommandTMaxHeight = 10
-
-" Set the default escape keybinding to, you guessed it, escape.
-let g:CommandTCancelMap = '<esc>'
-
-" Dynamically use Command T or ctrlp.vim based on availability of Ruby.
-" We do this because Command T is much faster than ctrlp.vim.
-if has('ruby')
-  " --------
-  " Use Command T since we've got Ruby
-  " --------
-
-  " Conditional Mappings
-  if has('unix')
-    nnoremap <silent><C-t> :CommandT<CR>
-  else
-    nnoremap <silent><M-t> :CommandT<CR>
-  endif
-
-  " Leader Commands
-  nnoremap <leader>t :CommandT<CR>
-else
-  " --------
-  " Use ctrlp.vim since we don't have Ruby
-  " --------
-
-  " Conditional Mappings
-  if has('unix')
-    let g:ctrlp_map = '<C-t>'
-  else
-    let g:ctrlp_map = '<M-t>'
-  endif
-
-  " Leader Commands
-  nnoremap <leader>t :CtrlPRoot<CR>
-  nnoremap <leader>b :CtrlPBuffer<CR>
-endif
-
-" Always use CtrlP for most recently used files and relative dierctory.
-if has('unix')
-  nnoremap <silent><C-u> :CtrlPCurFile<CR>
-else
-  nnoremap <silent><M-u> :CtrlPCurFile<CR>
-endif
-
-" Also map leader commands
-nnoremap <leader>u :CtrlPCurFile<CR>
-nnoremap <leader>m :CtrlPMRUFiles<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-
-" ---------------
-" Powerline
-" ---------------
-" Keep ^B from showing on Windows in Powerline
-if has('win32') || has('win64')
-  let g:Powerline_symbols = 'compatible'
-elseif has('gui_macvim')
-  let g:Powerline_symbols = 'fancy'
-endif
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-
-" ---------------
-" jellybeans.vim colorscheme tweaks
-" ---------------
-" Make cssAttrs (center, block, etc.) the same color as units
-hi! link cssAttr Constant
-
-" ---------------
 " Ack.vim
 " ---------------
 nmap <silent> <leader>as :AckFromSearch<CR>
@@ -596,87 +380,8 @@ nmap <Leader>bc :BundleClean<CR>
 " ----------------------------------------
 
 " ---------------
-" OpenURL
-" ---------------
-
-if has('ruby')
-ruby << EOF
-  require 'open-uri'
-  require 'openssl'
-
-  def extract_url(url)
-    re = %r{(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]\{\};:'".,<>?«»“”‘’]))}
-
-    url.match(re).to_s
-  end
-
-  def open_url
-    line = VIM::Buffer.current.line
-
-    if url = extract_url(line)
-      if RUBY_PLATFORM.downcase =~ /(win|mingw)(32|64)/
-        `start cmd /c chrome #{url}`
-        VIM::message("Opened #{url}")
-      else
-        `open #{url}`
-        VIM::message("Opened #{url}")
-      end
-    else
-      VIM::message("No URL found on this line.")
-    end
-
-  end
-
-  # Returns the contents of the <title> tag of a given page
-  def fetch_title(url)
-    if RUBY_VERSION < '1.9'
-      open(url).read.match(/<title>(.*?)<\/title>?/i)[1]
-    else
-      open(url, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE).read.match(/<title>(.*?)<\/title>?/i)[1]
-    end
-  end
-
-  # Paste the title and url for the url on the clipboard in markdown format: [Title](url)
-  # Note: Clobbers p register
-  def paste_url_and_title
-    clipboard = VIM::evaluate('@+')
-    url = extract_url(clipboard)
-    if url and url.strip != ""
-      puts "Fetching title"
-      title = fetch_title(url)
-      VIM::command "let @p = '[#{title}](#{url})'"
-      VIM::command 'normal! "pp'
-    else
-      VIM::message("Clipboard does not contain URL: '#{clipboard[1..10]}'...")
-    end
-  end
-EOF
-
-" Open a URL
-if !exists("*OpenURL")
-  function! OpenURL()
-    :ruby open_url
-  endfunction
-endif
-
-command! OpenUrl call OpenURL()
-nnoremap <leader>o :call OpenURL()<CR>
-
-" ---------------
 " Paste link with Title
 " ---------------
-
-" Open a URL
-if !exists("*PasteURLTitle")
-  function! PasteURLTitle()
-    :ruby paste_url_and_title
-  endfunction
-endif
-
-command! PasteURLTitle call PasteURLTitle()
-map <leader>pt :PasteURLTitle<CR>
-
-endif " endif has('ruby')
 
 " ---------------
 " Quick spelling fix (first item in z= list)
@@ -694,13 +399,6 @@ endfunction
 
 command! QuickSpellingFix call QuickSpellingFix()
 nmap <silent> <leader>z :QuickSpellingFix<CR>
-
-" ---------------
-" Convert Ruby 1.8 hash rockets to 1.9 JSON style hashes.
-" From: http://git.io/cxmJDw
-" Note: Defaults to the entire file unless in visual mode.
-" ---------------
-command! -bar -range=% NotRocket execute '<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/e' . (&gdefault ? '' : 'g')
 
 " ---------------
 " Strip Trailing White Space
