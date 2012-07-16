@@ -95,7 +95,7 @@ set macmeta
 " Color
 " ---------------
 set background=dark
-"colorscheme 
+colorscheme twilight_bryan
 
 " ---------------
 " Backups
