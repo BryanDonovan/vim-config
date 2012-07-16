@@ -49,6 +49,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
+Bundle 'sleistner/vim-jshint'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/nginx.vim'
@@ -204,19 +205,6 @@ vmap K k
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
-
-" Easier Scrolling (think j/k with left hand)
-" All variations are mapped for now until I get used to one
-" C/M/D + d (page up)
-" C/M/D + f (page down)
-nmap <C-d> <C-b>
-if has("gui_macvim")
-  nmap <D-f> <C-f>
-  nmap <D-d> <C-b>
-else
-  nmap <M-f> <C-f>
-  nmap <M-d> <C-b>
-endif
 
 " Overrides neocomplcache with regular keyword completion
 inoremap <expr><C-k>  "\<C-x><C-n>"
@@ -440,3 +428,5 @@ if has("autocmd")
   " Fix trailing whitespace in my most used programming langauges
   autocmd BufWritePre *.py,*.coffee,*.rb silent! :StripTrailingWhiteSpace
 endif
+
+au FileType javascript setlocal sw=4 sts=4
