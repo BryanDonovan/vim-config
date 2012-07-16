@@ -363,14 +363,6 @@ nmap <Leader>bi :BundleInstall<CR>
 nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
 nmap <Leader>bc :BundleClean<CR>
 
-" ----------------------------------------
-" Functions
-" ----------------------------------------
-
-" ---------------
-" Paste link with Title
-" ---------------
-
 " ---------------
 " Quick spelling fix (first item in z= list)
 " ---------------
@@ -429,4 +421,5 @@ if has("autocmd")
   autocmd BufWritePre *.py,*.coffee,*.rb silent! :StripTrailingWhiteSpace
 endif
 
+" Set sw, sts to 4 spaces only for javascript
 au FileType javascript setlocal sw=4 sts=4
