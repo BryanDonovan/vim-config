@@ -1,1 +1,7 @@
 vim/tmp/*
+vim/bundle/cocoa.vim
+vim/bundle/matchit.zip
+vim/bundle/textile.vim
+vim/bundle/vim-session
+vim/bundle/vim-space
+vim/bundle/vim-textobj-user
