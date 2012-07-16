@@ -37,6 +37,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/snipmate-snippets'
 Bundle 'MarcWeber/vim-addon-mw-utils'
+
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -62,6 +63,7 @@ Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
+Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-repeat'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
@@ -84,9 +86,6 @@ set guifont=Menlo\ for\ Powerline:h12
 if has("gui_running")
   set guioptions=egmrt
 endif
-
-" Use option (alt) as meta key.
-set macmeta
 
 " ----------------------------------------
 " Regular Vim Configuration (No Plugins Needed)

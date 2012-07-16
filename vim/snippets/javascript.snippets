@@ -1,0 +1,79 @@
+# My personal javascript snippets
+snippet clog
+	console.log(${1});
+snippet here
+	console.log("\nHERE\n");
+snippet wtf 
+	console.log("\nWTF\n");
+snippet cbe
+	if (err) { return cb(err); }
+	${1}
+snippet cfunc
+	${1:function_name}(${2:args}, function(err, ${3:result}) {
+		if (err) { return cb(err); }
+		${4}
+	});
+	
+# Test Related
+snippet mocha
+	var assert = require('assert');
+	var support = require('../support'); // adjust this
+	
+	suite("MySuite", function() {
+		suiteSetup(function() {
+		});
+
+		suiteTeardown(function() {
+		});
+
+		suite("${1:my_suite}", function() {
+			test("${2:my_test}", function(done) {
+				done();
+			});
+		});
+	});
+
+snippet pend
+	return support.pending(${1:done});
+snippet set
+	setup(function() {
+		${1}
+	});
+snippet suiteSetup 
+	suiteSetup(function(done) {
+		${1}
+		done();
+	});
+snippet suiteTeardown
+	suiteTeardown(function(done) {
+		${1}
+		done();
+	});
+snippet setup 
+	setup(function(done) {
+		${1}
+		done();
+	});
+snippet teardown
+	teardown(function(done) {
+		${1}
+		done();
+	});
+snippet strict
+	assert.strictEqual(${1:actual}, ${2:expected});
+snippet suite
+	suite("${1:my_suite}", function() {
+		${2}
+	});
+snippet test
+	test("${1:my_test}", function(done) {
+		${2}
+		done();
+	});
+snippet cke
+	check_err(err);
+snippet factoryu
+	factory.${1:user}.create(function(err, ${3:result}) {
+		check_err(err);
+		${4}
+	});
