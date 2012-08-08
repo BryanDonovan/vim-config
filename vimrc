@@ -26,6 +26,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
 Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
+Bundle 'duff/vim-bufonly'
 " Automatic Helpers
 Bundle 'IndexedSearch'
 Bundle 'xolox/vim-session'
@@ -105,7 +106,7 @@ set directory=~/.vim/tmp
 " ---------------
 set ruler          " Ruler on
 set nonumber       " Line numbers off 
-set nowrap         " Line wrapping off
+"set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
@@ -151,10 +152,10 @@ set backspace=2
 " ---------------
 " Searching
 " ---------------
-set ignorecase " Case insensitive search
-set smartcase  " Non-case sensitive search
+"set ignorecase " Case insensitive search
+"set smartcase  " Non-case sensitive search
 set incsearch
-set hlsearch
+"set hlsearch
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class,*.scssc
 
 " ---------------
