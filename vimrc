@@ -3,6 +3,7 @@
 " ----------------------------------------
 
 set nocompatible " be iMproved
+filetype on
 filetype off     " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -16,7 +17,7 @@ Bundle 'gmarik/vundle'
 " ---------------
 
 " Navigation
-Bundle 'christoomey/vim-space'
+"Bundle 'christoomey/vim-space'
 " Commands
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-speeddating'
@@ -24,14 +25,14 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
-Bundle 'keepcase.vim'
+"Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
 Bundle 'duff/vim-bufonly'
 " Automatic Helpers
-Bundle 'IndexedSearch'
+"Bundle 'IndexedSearch'
 Bundle 'xolox/vim-session'
 "Bundle 'scrooloose/syntastic'
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
 " Snippets
@@ -44,7 +45,6 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
@@ -58,7 +58,10 @@ Bundle 'mutewinter/nginx.vim'
 Bundle 'timcharper/textile.vim'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hallison/vim-markdown'
+Bundle 'digitaltoad/vim-jade'
 Bundle 'groenewege/vim-less'
+Bundle 'rodjek/vim-puppet'
+"Bundle 'chooh/brightscript'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -419,3 +422,5 @@ endif
 
 " Set sw, sts to 4 spaces only for javascript
 au FileType javascript setlocal sw=4 sts=4
+Bundle 'tpope/vim-rake'
+au BufNewFile,BufRead node set filetype=javascript
