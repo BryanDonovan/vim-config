@@ -113,9 +113,9 @@ set nonumber       " Line numbers off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
-if exists('+colorcolumn')
-  set colorcolumn=120 " Color the 80th column differently
-endif
+"if exists('+colorcolumn')
+"  set colorcolumn=120 " Color the 80th column differently
+"endif
 " Disable tooltips for hovering keywords in Vim
 if exists('+ballooneval')
   " This doesn't seem to stop tooltips for Ruby files
@@ -133,8 +133,8 @@ set wildmenu           " Turn on WiLd menu
 set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
-set clipboard+=unnamed " Yanks go on clipboard instead.
-set autowrite          " Writes on make/shell commands
+"set clipboard+=unnamed " Yanks go on clipboard instead.
+"set autowrite          " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
 set formatoptions=crql
@@ -150,7 +150,6 @@ set cindent
 set autoindent
 set smarttab
 set expandtab
-set backspace=2
 
 " ---------------
 " Searching
