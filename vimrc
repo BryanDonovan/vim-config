@@ -22,6 +22,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
@@ -51,7 +52,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
-Bundle 'sleistner/vim-jshint'
+"Bundle 'sleistner/vim-jshint'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/nginx.vim'
@@ -61,7 +62,7 @@ Bundle 'hallison/vim-markdown'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'groenewege/vim-less'
 Bundle 'rodjek/vim-puppet'
-"Bundle 'chooh/brightscript'
+Bundle 'chooh/brightscript.vim'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -133,7 +134,7 @@ set wildmenu           " Turn on WiLd menu
 set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
-"set clipboard+=unnamed " Yanks go on clipboard instead.
+set clipboard+=unnamed " Yanks go on clipboard instead.
 "set autowrite          " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
@@ -423,3 +424,6 @@ endif
 au FileType javascript setlocal sw=4 sts=4
 Bundle 'tpope/vim-rake'
 au BufNewFile,BufRead node set filetype=javascript
+
+" Clear the sign column for gitgutter
+hi clear SignColumn
