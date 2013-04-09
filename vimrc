@@ -38,7 +38,8 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
 " Snippets
 Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
+"Bundle 'honza/snipmate-snippets'
+Bundle 'scrooloose/snipmate-snippets'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 
 " Language Additions
