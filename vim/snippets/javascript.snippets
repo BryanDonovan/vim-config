@@ -4,13 +4,13 @@ snippet clog
 snippet trace 
 	console.trace();
 snippet here
-	console.log("\nHERE\n");
+	console.log("\nHERE:");
 snippet wtf 
-	console.log("\nWTF\n");
+	console.log("\nWTF:");
 snippet lbefore 
-	console.log("\nBEFORE\n");
+	console.log("\nBEFORE:");
 snippet lafter 
-	console.log("\nAFTER\n");
+	console.log("\nAFTER:");
 snippet cbe
 	if (err) { return cb(err); }
 snippet cfunc
@@ -25,12 +25,6 @@ snippet mocha
 	var support = require('../support'); // adjust this
 	
 	describe("${1:MySuite}", function() {
-		before(function() {
-		});
-
-		after(function() {
-		});
-
 		describe("${2:my_suite}", function() {
 			it("${3:my_test}", function(done) {
 				done();
@@ -39,11 +33,11 @@ snippet mocha
 	});
 
 snippet randn 
-	support.random_number()
+	support.random.number()
 snippet rands 
-	support.random_string()
+	support.random.string()
 snippet randemail 
-	support.random_string() + '@example.com'
+	support.random.email()
 snippet before
 	before(function(done) {
 		${1}
@@ -62,25 +56,13 @@ snippet aft
 	after(function() {
 		${1}
 	});
-snippet suiteSetup 
-	before(function(done) {
-		${1}
-		done();
-	});
-snippet suiteTeardown
-	after(function(done) {
-		${1}
-		done();
-	});
 snippet bfe 
-	beforeEach(function(done) {
+	beforeEach(function() {
 		${1}
-		done();
 	});
 snippet afe 
-	afterEach(function(done) {
+	afterEach(function() {
 		${1}
-		done();
 	});
 snippet strict
 	assert.strictEqual(${1:actual}, ${2:expected});
@@ -100,7 +82,7 @@ snippet it
 snippet cke
 	check_err(err);
 snippet factoryu
-	factory.${1:user}.create(function(err, ${3:result}) {
+	support.factories.${1:user}.create(function(err, ${3:result}) {
 		check_err(err);
 		user = result;
 	});
