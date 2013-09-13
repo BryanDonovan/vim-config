@@ -7,6 +7,8 @@ filetype on
 filetype off     " required!
 
 set rtp+=~/.vim/bundle/vundle/
+
+call pathogen#infect()
 call vundle#rc()
 
 " let Vundle manage Vundle, required
@@ -32,7 +34,7 @@ Bundle 'duff/vim-bufonly'
 " Automatic Helpers
 "Bundle 'IndexedSearch'
 Bundle 'xolox/vim-session'
-"Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 "Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
@@ -45,15 +47,17 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
+"Bundle 'tpope/vim-haml'
+"Bundle 'tpope/vim-rails'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
+"Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
 "Bundle 'sleistner/vim-jshint'
+Bundle 'walm/jshint.vim.git'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/nginx.vim'
