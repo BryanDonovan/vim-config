@@ -27,15 +27,12 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
-"Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
 Bundle 'duff/vim-bufonly'
 " Automatic Helpers
-"Bundle 'IndexedSearch'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'scrooloose/syntastic'
-"Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
 " Snippets
@@ -47,15 +44,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
-"Bundle 'tpope/vim-haml'
-"Bundle 'tpope/vim-rails'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
-"Bundle 'jelera/vim-javascript-syntax'
-
-"Bundle 'othree/javascript-libraries-syntax.vim'
-"let g:used_javascript_libs = 'angularjs'
-"let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 Bundle 'vim-scripts/applescript.vim'
 
@@ -63,7 +53,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
-"Bundle 'sleistner/vim-jshint'
 Bundle 'walm/jshint.vim.git'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
@@ -82,7 +71,6 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-repeat'
-"Bundle 'Rykka/riv.vim'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
 
