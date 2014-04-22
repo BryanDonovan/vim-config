@@ -18,12 +18,12 @@ snippet cfunc
 		if (err) { return cb(err); }
 		${4}
 	});
-	
+
 # Test Related
 snippet mocha
 	var assert = require('assert');
 	var support = require('../support'); // adjust this
-	
+
 	describe("${1:MySuite}", function() {
 		describe("${2:my_suite}", function() {
 			it("${3:my_test}", function(done) {
@@ -74,8 +74,25 @@ snippet context
 	context("${1:my_suite}", function() {
 		${2}
 	});
-snippet it 
+snippet it
 	it("${1:my_test}", function(done) {
+		${2}
+		done();
+	});
+snippet When
+	context("When ${1}", function() {
+		${2}
+	});
+snippet And
+	context("And ${1}", function() {
+		${2}
+	});
+snippet But
+	context("But ${1}", function() {
+		${2}
+	});
+snippet Then 
+	it("Then ${1}", function(done) {
 		${2}
 		done();
 	});

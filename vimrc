@@ -8,7 +8,6 @@ filetype off     " required!
 
 set rtp+=~/.vim/bundle/vundle/
 
-call pathogen#infect()
 call vundle#rc()
 
 " let Vundle manage Vundle, required
@@ -33,6 +32,7 @@ Bundle 'scratch.vim'
 Bundle 'duff/vim-bufonly'
 " Automatic Helpers
 "Bundle 'IndexedSearch'
+Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'scrooloose/syntastic'
 "Bundle 'ervandew/supertab'
@@ -52,6 +52,13 @@ Bundle 'vim-ruby/vim-ruby'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
 "Bundle 'jelera/vim-javascript-syntax'
+
+"Bundle 'othree/javascript-libraries-syntax.vim'
+"let g:used_javascript_libs = 'angularjs'
+"let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+Bundle 'vim-scripts/applescript.vim'
+
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
@@ -75,6 +82,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-repeat'
+"Bundle 'Rykka/riv.vim'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
 
@@ -430,5 +438,18 @@ au FileType javascript setlocal sw=4 sts=4
 Bundle 'tpope/vim-rake'
 au BufNewFile,BufRead node set filetype=javascript
 
+if has("gui_running")
+  set regexpengine=1
+  syntax enable
+endif
+
 " Clear the sign column for gitgutter
 hi clear SignColumn
+
+" Highlight end-of-line whitespace
+match Todo /\s\+$/
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre  *.js :call TrimWhiteSpace()
