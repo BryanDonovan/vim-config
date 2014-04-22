@@ -36,10 +36,12 @@ Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
 " Snippets
-Bundle 'garbas/vim-snipmate'
-"Bundle 'honza/snipmate-snippets'
-Bundle 'scrooloose/snipmate-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+
+" Optional:
+Bundle "honza/vim-snippets"
 
 " Language Additions
 "   Ruby
@@ -73,7 +75,6 @@ Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
-Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-repeat'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
