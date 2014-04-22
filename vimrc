@@ -50,7 +50,7 @@ Bundle 'vim-ruby/vim-ruby'
 "Bundle 'pangloss/vim-javascript'
 "Bundle 'jelera/vim-javascript-syntax'
 
-"Bundle 'moll/vim-node'
+Bundle 'moll/vim-node'
 Bundle 'vim-scripts/applescript.vim'
 
 Bundle 'kchmck/vim-coffee-script'
