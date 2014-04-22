@@ -3,3 +3,4 @@ vim/tmp/*~
 vim/bundle
 vim/sessions
 vim/autoload
+vim/undo
