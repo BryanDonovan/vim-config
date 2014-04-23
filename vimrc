@@ -592,14 +592,15 @@ set nocompatible
         source $HOME/.vimrc.last
     endif
 """
-hi clear SignColumn
+
+if has("gui_running")
+  " Fixes vim-javascript issues in Vim 7.4+ with syntax highlighting regular expresssions.
+  set regexpengine=1
+  syntax enable
+endif
 
 " Clear the sign column for gitgutter
 hi clear SignColumn
 
 " Highlight end-of-line whitespace
 match Todo /\s\+$/
-
-" Fixes vim-javascript issues in Vim 7.4+ with syntax highlighting regular expresssions.
-set regexpengine=1
-syntax enable
