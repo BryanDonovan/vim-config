@@ -2,7 +2,7 @@ vim-config
 ==========
 
 My personal vim config for MacVim.  Might also work with other GUI-based Vim
-clients.
+clients. Based on the .vimrc from [Wolfy87/vim-config](https://github.com/Wolfy87/vim-config).
 
 Setup:
 

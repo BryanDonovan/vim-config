@@ -8,15 +8,15 @@
 set nocompatible
 
 """ Automatically make needed files and folders on first run
-""" If you don't run *nix you're on your own (as in remove this) 
+""" If you don't run *nix you're on your own (as in remove this)
     call system("mkdir -p $HOME/.vim/{plugin,undo}")
     if !filereadable($HOME . "/.vimrc.bundles") | call system("touch $HOME/.vimrc.bundles") | endif
     if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
-""" 
-""" Vundle plugin manager 
+"""
+""" Vundle plugin manager
     """ Automatically setting up Vundle, taken from
-    """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/ 
+    """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
         let has_vundle=1
         if !filereadable($HOME."/.vim/bundle/vundle/README.md")
             echo "Installing Vundle..."
@@ -25,13 +25,13 @@ set nocompatible
             silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
             let has_vundle=0
         endif
-    """ 
-    """ Initialize Vundle 
+    """
+    """ Initialize Vundle
         filetype off                                " required to init
         set rtp+=$HOME/.vim/bundle/vundle/          " include vundle
         call vundle#rc()                            " init vundle
-    """ 
-    """ Github repos, uncomment to disable a plugin 
+    """
+    """ Github repos, uncomment to disable a plugin
     " Recursive vundle, omg!
     Bundle 'gmarik/vundle'
 
@@ -39,7 +39,7 @@ set nocompatible
         if filereadable($HOME."/.vimrc.bundles")
             source $HOME/.vimrc.bundles
         endif
-    """ 
+    """
     " Makes newly-opened tabs keep the same pwd
     Bundle 'airblade/vim-rooter'
 
@@ -125,7 +125,7 @@ set nocompatible
         endif
 
 """ Local leading config, only use for prerequisites as it will be
-""" overwritten by anything below 
+""" overwritten by anything below
     if filereadable($HOME."/.vimrc.first")
         source $HOME/.vimrc.first
     endif
@@ -139,12 +139,12 @@ set nocompatible
         au BufNewFile,BufRead *.txt se ft=sh tw=79  " opens .txt w/highlight
         au BufNewFile,BufRead *.tex se ft=tex tw=79 " we don't want plaintex
         au BufNewFile,BufRead *.md se ft=markdown tw=79 " markdown, not modula
-        """ Tab colors, overwritten by lightline(?) 
+        """ Tab colors, overwritten by lightline(?)
             "hi TabLineFill ctermfg=NONE ctermbg=233
             "hi TabLine ctermfg=241 ctermbg=233
             "hi TabLineSel ctermfg=250 ctermbg=233
-        """ 
-        """ Custom highlighting, where NONE uses terminal background 
+        """
+        """ Custom highlighting, where NONE uses terminal background
             function! CustomHighlighting()
                 highlight Normal ctermbg=NONE
                 highlight nonText ctermbg=NONE
@@ -154,9 +154,9 @@ set nocompatible
             endfunction
 
             call CustomHighlighting()
-        """ 
-    """ 
-    """ Interface general 
+        """
+    """
+    """ Interface general
         "set cursorline                              " hilight cursor line
         set more                                    " ---more--- like less
         set ruler                                   " ruler on
@@ -170,16 +170,16 @@ set nocompatible
                        \.avi,.mkv,.so               " ignore said files
         set wildmenu                                " better auto complete
         set wildmode=longest,list                   " bash-like auto complete
-        """ Encoding 
+        """ Encoding
             " If you're having problems with some characters you can force
             " UTF-8 if your locale is something else.
             " WARNING: this will affect encoding used when editing files!
             "
             " set encoding=utf-8                    " for character glyphs
-        """ 
-    """ 
-""" 
-""" General settings 
+        """
+    """
+"""
+""" General settings
     set hidden                                      " buffer change, more undo
     set history=1000                                " default 20
     set iskeyword+=_,$,@,%,#                        " not word dividers
@@ -200,45 +200,45 @@ set nocompatible
     set splitright                                  " vsplits go right w/focus
     set ttyfast                                     " for faster redraws etc
     set ttymouse=xterm2                             " experimental
-    """ Folding 
+    """ Folding
         set foldcolumn=0                            " hide folding column
         set foldmethod=indent                       " folds using indent
         set foldnestmax=10                          " max 10 nested folds
         set foldlevelstart=99                       " folds open by default
-    """ 
-    """ Search and replace 
+    """
+    """ Search and replace
         set gdefault                                " default s//g (global)
         set incsearch                               " "live"-search
-    """ 
-    """ Matching 
+    """
+    """ Matching
         set matchtime=2                             " time to blink match {}
         set matchpairs+=<:>                         " for ci< or ci>
         set showmatch                               " tmpjump to match-bracket
-    """ 
-    """ Return to last edit position when opening files 
+    """
+    """ Return to last edit position when opening files
         autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \     exe "normal! g`\"" |
             \ endif
-    """ 
-""" 
-""" Files 
+    """
+"""
+""" Files
     set autochdir                                   " always use curr. dir.
     set autoread                                    " refresh if changed
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set nobackup                                    " disable backups
     set updatecount=50                              " update swp after 50chars
-    """ Persistent undo. Requires Vim 7.3 
+    """ Persistent undo. Requires Vim 7.3
         if has('persistent_undo') && exists("&undodir")
             set undodir=$HOME/.vim/undo/            " where to store undofiles
             set undofile                            " enable undofile
             set undolevels=500                      " max undos stored
             set undoreload=10000                    " buffer stored undos
         endif
-    """ 
-""" 
-""" Text formatting 
+    """
+"""
+""" Text formatting
     set autoindent                                  " preserve indentation
     set backspace=indent,eol,start                  " smart backspace
     set cinkeys-=0#                                 " don't force # indentation
@@ -251,12 +251,12 @@ set nocompatible
     set smarttab                                    " tab to 0,4,8 etc.
     set softtabstop=4                               " "tab" feels like <tab>
     set tabstop=4                                   " replace <TAB> w/4 spaces
-    """ Only auto-comment newline for block comments 
+    """ Only auto-comment newline for block comments
         au FileType c,cpp setlocal comments -=:// comments +=f://
-    """ 
-""" 
-""" Keybindings 
-    """ General 
+    """
+"""
+""" Keybindings
+    """ General
         " Remap <leader>
         let mapleader=","
 
@@ -305,9 +305,9 @@ set nocompatible
         nnoremap gN :bprevious<CR>
         nnoremap gd :bdelete<CR>
         nnoremap gf <C-^>
-    """ 
+    """
     """ Functions or fancy binds {
-        """ Toggle syntax highlighting 
+        """ Toggle syntax highlighting
             function! ToggleSyntaxHighlighthing()
                 if exists("g:syntax_on")
                     syntax off
@@ -318,11 +318,11 @@ set nocompatible
             endfunction
 
             nnoremap <leader>s :call ToggleSyntaxHighlighthing()<CR>
-        """ 
+        """
         """ Highlight characters past 79, toggle with <leader>h
         """ You might want to override this function and its variables with
         """ your own in .vimrc.last which might set for example colorcolumn or
-        """ even the textwidth. See https://github.com/timss/vimconf/pull/4 
+        """ even the textwidth. See https://github.com/timss/vimconf/pull/4
             let g:overlength_enabled = 0
             highlight OverLength ctermbg=238 guibg=#444444
 
@@ -339,8 +339,8 @@ set nocompatible
             endfunction
 
             nnoremap <leader>h :call ToggleOverLength()<CR>
-        """ 
-        """ Toggle relativenumber using <leader>r 
+        """
+        """ Toggle relativenumber using <leader>r
             nnoremap <leader>r :call NumberToggle()<CR>
 
             function! NumberToggle()
@@ -350,15 +350,15 @@ set nocompatible
                     set relativenumber
                 endif
             endfunction
-        """ 
-        """ Remove multiple empty lines 
+        """
+        """ Remove multiple empty lines
             function! DeleteMultipleEmptyLines()
                 g/^\_$\n\_^$/d
             endfunction
 
             nnoremap <leader>ld :call DeleteMultipleEmptyLines()<CR>
-        """ 
-        """ Split to relative header/source 
+        """
+        """ Split to relative header/source
             function! SplitRelSrc()
                 let s:fname = expand("%:t:r")
 
@@ -372,8 +372,8 @@ set nocompatible
             endfunction
 
             nnoremap <leader>le :call SplitRelSrc()<CR>
-        """ 
-        """ Strip trailing whitespace, return to cursors at save 
+        """
+        """ Strip trailing whitespace, return to cursors at save
             function! <SID>StripTrailingWhitespace()
                 let l = line(".")
                 let c = col(".")
@@ -381,11 +381,11 @@ set nocompatible
                 call cursor(l, c)
             endfunction
 
-            autocmd FileType c,cpp,css,html,perl,python,sh autocmd 
+            autocmd FileType c,cpp,css,html,perl,python,sh,javascript,json,ruby,vim autocmd
                         \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
-        """ 
-    """ 
-    """ Plugins 
+        """
+    """
+    """ Plugins
         " Toggle tagbar (definitions, functions etc.)
         map <F1> :TagbarToggle<CR>
 
@@ -395,10 +395,10 @@ set nocompatible
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
         noremap <silent><leader>lc :lcl<CR>
-    """ 
-""" 
-""" Plugin settings 
-    """ Lightline 
+    """
+"""
+""" Plugin settings
+    """ Lightline
         let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
@@ -546,7 +546,7 @@ set nocompatible
             SyntasticCheck
             call lightline#update()
         endfunction
-    """ 
+    """
 
     " Startify, the fancy start page
     let g:ctrlp_reuse_window = 'startify' " don't split in startify
@@ -582,12 +582,12 @@ set nocompatible
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-""" 
+"""
 """ Local ending config, will overwrite anything above. Generally use this. {
     if filereadable($HOME."/.vimrc.last")
         source $HOME/.vimrc.last
     endif
-""" 
+"""
 hi clear SignColumn
 
 " Clear the sign column for gitgutter
