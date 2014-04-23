@@ -63,6 +63,10 @@ set nocompatible
     Bundle 'itchyny/lightline.vim'
     Bundle 'bling/vim-bufferline'
 
+    " Gives us ack commands for searching within files.
+    " :Ack [options] {pattern} [{directories}]
+    Bundle 'mileszs/ack.vim'
+
     " Easy... motions... yeah.
     "Bundle 'Lokaltog/vim-easymotion'
 
