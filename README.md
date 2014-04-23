@@ -1,10 +1,12 @@
 vim-config
 ==========
 
-My personal vim config
+My personal vim config for MacVim.  Might also work with other GUI-based Vim
+clients.
 
 Setup:
 
+    # Back up your existing .vimrc and .vim dirs.
     mkdir vim-backup
     mv .vimrc vim-backup
     mv .vim vim-backup
@@ -15,3 +17,11 @@ Setup:
 
 Open a vim session and type :BundleInstall
 
+This config uses [PeepOpen](http://topfunky.github.io/PeepOpen/) to easily
+navigate your project.
+
+I've found that MacVim works best with this config, and especially with
+PeepOpen if you change some preferences:
+
+* Set "Open files from applications" to "in the current window"
+* Choose "and set the arglist"
