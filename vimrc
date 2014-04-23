@@ -228,6 +228,10 @@ set nocompatible
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set nobackup                                    " disable backups
+    set noswapfile
+    "set backup
+    "set backupdir=~/.vim/tmp
+    "set directory=~/.vim/tmp
     set updatecount=50                              " update swp after 50chars
     """ Persistent undo. Requires Vim 7.3
         if has('persistent_undo') && exists("&undodir")

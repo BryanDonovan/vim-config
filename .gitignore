@@ -1,4 +1,4 @@
-vim/tmp/*.*
+vim/tmp/*.swp
 vim/tmp/*~
 vim/bundle
 vim/sessions
