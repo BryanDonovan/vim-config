@@ -25,3 +25,7 @@ PeepOpen if you change some preferences:
 
 * Set "Open files from applications" to "in the current window"
 * Choose "and set the arglist"
+
+PeepOpen uses ``<leader> p`` to open the file navigation interface. This vim
+config sets the leader to ``,`` (comma), so to get PeepOpen to open the file
+navigation interface, type ``, p`` in normal/command mode (not insert mode).
