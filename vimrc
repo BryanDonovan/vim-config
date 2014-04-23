@@ -599,3 +599,7 @@ hi clear SignColumn
 
 " Highlight end-of-line whitespace
 match Todo /\s\+$/
+
+" Fixes vim-javascript issues in Vim 7.4+ with syntax highlighting regular expresssions.
+set regexpengine=1
+syntax enable
