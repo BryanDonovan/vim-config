@@ -46,6 +46,10 @@ set nocompatible
     Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-session'
 
+    " Lets us close all buffers or keep a single buffer easily.
+    " Just type :Buf<tab>..
+    Bundle 'duff/vim-bufonly'
+
     " Edit files using sudo/su
     Bundle 'chrisbra/SudoEdit.vim'
 
