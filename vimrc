@@ -77,7 +77,8 @@ set nocompatible
     "Bundle 'scrooloose/nerdcommenter'
 
     " Autoclose (, " etc
-    Bundle 'Townk/vim-autoclose'
+    " This is disabled since it messes with indenting while typing.
+    "Bundle 'Townk/vim-autoclose'
 
     " Git wrapper inside Vim
     Bundle 'tpope/vim-fugitive'
