@@ -40,6 +40,11 @@ set nocompatible
             source $HOME/.vimrc.bundles
         endif
     """ 
+    " Makes newly-opened tabs keep the same pwd
+    Bundle 'airblade/vim-rooter'
+
+    Bundle 'xolox/vim-misc'
+    Bundle 'xolox/vim-session'
 
     " Edit files using sudo/su
     Bundle 'chrisbra/SudoEdit.vim'
