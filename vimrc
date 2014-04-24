@@ -305,10 +305,10 @@ set nocompatible
         map Q <nop>
 
         " Buffers, preferred over tabs now with bufferline. Buggy?
-        nnoremap gn :bNext<CR>
-        nnoremap gN :bprevious<CR>
-        nnoremap gd :bdelete<CR>
-        nnoremap gf <C-^>
+        "nnoremap gn :bNext<CR>
+        "nnoremap gN :bprevious<CR>
+        "nnoremap gd :bdelete<CR>
+        "nnoremap gf <C-^>
     """
     """ Functions or fancy binds {
         """ Toggle syntax highlighting
