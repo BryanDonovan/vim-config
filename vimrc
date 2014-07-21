@@ -111,6 +111,7 @@ set nocompatible
     Bundle 'walm/jshint.vim.git'
 
     "   Other Languages
+    Bundle 'jnwhiteh/vim-golang'
     Bundle 'mutewinter/nginx.vim'
     Bundle 'timcharper/textile.vim'
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -583,6 +584,8 @@ set nocompatible
         \ 'active_filetypes':
             \ ['c', 'cpp', 'perl', 'python'] }
 
+    let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+    let g:syntastic_aggregate_errors = 1
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
