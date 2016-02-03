@@ -50,6 +50,7 @@ hi Function       guifg=#9B5C2E
 hi Statement      guifg=#CF7D34
 hi Conditional    guifg=#9B703F
 hi Repeat         guifg=khaki
+" Label is object key color in javascript
 hi Label          guifg=#7587A6 ctermfg=189
 
 hi Operator       guifg=#CF6A4C
