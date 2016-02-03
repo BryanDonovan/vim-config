@@ -48,6 +48,10 @@ snippet after
 		${1}
 		done();
 	});
+snippet destroyusers
+	after(function(done) {
+		support.acceptance.users.destroy_all_created(done);
+	});
 snippet bef
 	before(function() {
 		${1}

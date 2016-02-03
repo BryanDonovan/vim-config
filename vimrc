@@ -103,6 +103,9 @@ set nocompatible
     " REQUIREMENTS: See :h syntastic-intro
     Bundle 'scrooloose/syntastic'
 
+    " Shortcuts for things like :cnext
+    Bundle 'tpope/vim-unimpaired'
+
     " Functions, class data etc.
     " REQUIREMENTS: (exuberant)-ctags
     Bundle 'majutsushi/tagbar'
@@ -117,6 +120,9 @@ set nocompatible
     Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
     Bundle 'hallison/vim-markdown'
     Bundle 'rodjek/vim-puppet'
+    Bundle 'derekwyatt/vim-scala'
+    Bundle 'tfnico/vim-gradle'
+    Bundle 'kchmck/vim-coffee-script'
 
     """ Installing plugins the first time
         if has_vundle == 0
@@ -140,6 +146,7 @@ set nocompatible
         au BufNewFile,BufRead *.txt se ft=sh tw=79  " opens .txt w/highlight
         au BufNewFile,BufRead *.tex se ft=tex tw=79 " we don't want plaintex
         au BufNewFile,BufRead *.md se ft=markdown tw=79 " markdown, not modula
+        au BufNewFile,BufRead *.ejs se ft=javascript tw=79 " markdown, not modula
         """ Tab colors, overwritten by lightline(?)
             "hi TabLineFill ctermfg=NONE ctermbg=233
             "hi TabLine ctermfg=241 ctermbg=233
@@ -386,7 +393,7 @@ set nocompatible
                 call cursor(l, c)
             endfunction
 
-            autocmd FileType c,cpp,css,html,perl,python,sh,javascript,json,ruby, autocmd 
+            autocmd FileType c,cpp,css,html,perl,python,sh,javascript,json,ruby,scala,markdown,gradle,java autocmd 
                         \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
         """
     """
@@ -545,7 +552,7 @@ set nocompatible
 
         augroup AutoSyntastic
             autocmd!
-            autocmd BufWritePost *.c,*.cpp,*.perl,*py,*js,*rb call s:syntastic()
+            autocmd BufWritePost *.c,*.cpp,*.perl,*py,*js,*rb,*scala,*gradle call s:syntastic()
         augroup END
         function! s:syntastic()
             SyntasticCheck
