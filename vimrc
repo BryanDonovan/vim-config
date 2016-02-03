@@ -35,6 +35,9 @@ set nocompatible
     " Recursive vundle, omg!
     Bundle 'gmarik/vundle'
 
+    Plugin 'pangloss/vim-javascript'
+    
+
     """ Local bundles (and only bundles in this file!) {
         if filereadable($HOME."/.vimrc.bundles")
             source $HOME/.vimrc.bundles
