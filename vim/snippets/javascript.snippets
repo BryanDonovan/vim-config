@@ -1,6 +1,8 @@
 # My personal javascript snippets
 snippet clog
 	console.log(${1});
+snippet clogs
+	console.log("${1}:", ${2});
 snippet trace 
 	console.trace();
 snippet here
@@ -18,92 +20,92 @@ snippet cfunc
 		if (err) { return cb(err); }
 		${4}
 	});
+snippet timeout 
+	setTimeout(() => {
+	    ${2}
+	}, ${1});
+
+snippet timeoutdone
+	setTimeout(done, ${1});
 
 # Test Related
 snippet mocha
-	var assert = require('assert');
-	var support = require('../support'); // adjust this
+	'use strict';
+	const assert = require('assert');
+	const support = require('../support'); // adjust this
 
 	describe("${1:MySuite}", function() {
-		describe("${2:my_suite}", function() {
-			it("${3:my_test}", function(done) {
+		describe("${2:my_suite}", () => {
+			it("${3:my_test}", done => {
 				done();
 			});
 		});
 	});
-
 snippet randn 
 	support.random.number()
 snippet rands 
 	support.random.string()
 snippet randemail 
 	support.random.email()
-snippet before
-	before(function(done) {
+snippet randdsid 
+	support.random.dsid()
+snippet befa
+	before(done => {
 		${1}
 		done();
 	});
-snippet after
-	after(function(done) {
+snippet afta
+	after(done => {
 		${1}
 		done();
-	});
-snippet destroyusers
-	after(function(done) {
-		support.acceptance.users.destroy_all_created(done);
 	});
 snippet bef
-	before(function() {
+	before(() => {
 		${1}
 	});
 snippet aft
-	after(function() {
+	after(() => {
 		${1}
 	});
 snippet bfe 
-	beforeEach(function() {
+	beforeEach(() => {
 		${1}
 	});
 snippet afe 
-	afterEach(function() {
+	afterEach(() => {
 		${1}
 	});
 snippet strict
 	assert.strictEqual(${1:actual}, ${2:expected});
 snippet desc
-	describe("${1:my_suite}", function() {
+	describe("${1:my_suite}", () => {
 		${2}
 	});
 snippet context
-	context("${1:my_suite}", function() {
+	context("${1:my_suite}", () => {
 		${2}
 	});
 snippet it
-	it("${1:my_test}", function(done) {
+	it("${1:my_test}", done => {
 		${2}
 		done();
 	});
 snippet When
-	context("When ${1}", function() {
+	context("When ${1}", () => {
 		${2}
 	});
 snippet And
-	context("And ${1}", function() {
+	context("And ${1}", () => {
 		${2}
 	});
 snippet But
-	context("But ${1}", function() {
+	context("But ${1}", () => {
 		${2}
 	});
-snippet Then 
-	it("Then ${1}", function(done) {
+snippet Then
+	it("Then ${1}", done => {
 		${2}
 		done();
 	});
 snippet cke
 	check_err(err);
-snippet factoryu
-	support.factories.${1:user}.create(function(err, ${3:result}) {
-		check_err(err);
-		user = result;
-	});

@@ -31,12 +31,17 @@ set nocompatible
         set rtp+=$HOME/.vim/bundle/vundle/          " include vundle
         call vundle#rc()                            " init vundle
     """
+
+    " Add fzf (fuzzy finder) to runtime path
+    set rtp+=/usr/local/opt/fzf
+
     """ Github repos, uncomment to disable a plugin
     " Recursive vundle, omg!
     Bundle 'gmarik/vundle'
 
+    Bundle 'kien/ctrlp.vim'
+
     Plugin 'BryanDonovan/vim-javascript'
-    
 
     """ Local bundles (and only bundles in this file!) {
         if filereadable($HOME."/.vimrc.bundles")
@@ -126,6 +131,8 @@ set nocompatible
     Bundle 'derekwyatt/vim-scala'
     Bundle 'tfnico/vim-gradle'
     Bundle 'kchmck/vim-coffee-script'
+    Bundle 'mxw/vim-jsx'
+    let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
     """ Installing plugins the first time
         if has_vundle == 0
@@ -611,6 +618,8 @@ if has("gui_running")
   set regexpengine=1
   syntax enable
 endif
+
+set guifont=Inconsolata:h14
 
 " Clear the sign column for gitgutter
 hi clear SignColumn
