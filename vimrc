@@ -273,6 +273,7 @@ set nocompatible
     set smarttab                                    " tab to 0,4,8 etc.
     set softtabstop=4                               " "tab" feels like <tab>
     set tabstop=4                                   " replace <TAB> w/4 spaces
+    set nofixendofline
     """ Only auto-comment newline for block comments
         au FileType c,cpp setlocal comments -=:// comments +=f://
     """
@@ -594,6 +595,14 @@ set nocompatible
 
     " Syntastic - This is largely up to your own usage, and override these
     "             changes if be needed. This is merely an exemplification.
+    "set statusline+=%#warningmsg#
+    "set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%*
+    "let g:syntastic_always_populate_loc_list = 1
+    "let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    "let g:syntastic_check_on_wq = 0
+    "let g:syntastic_javascript_eslint_exe = 'npm run lint --'
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_compiler_options = ' -std=c++0x'
     let g:syntastic_mode_map = {
@@ -601,7 +610,8 @@ set nocompatible
         \ 'active_filetypes':
             \ ['c', 'cpp', 'perl', 'python'] }
 
-    let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+    let g:syntastic_javascript_checkers = ['eslint','jshint','jscs']
+    "let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_aggregate_errors = 1
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -619,7 +629,7 @@ if has("gui_running")
   syntax enable
 endif
 
-set guifont=Inconsolata:h14
+set guifont=Inconsolata:h15
 
 " Clear the sign column for gitgutter
 hi clear SignColumn
